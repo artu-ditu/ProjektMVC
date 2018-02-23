@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Admin panel";
+}
+
+<h2>Admin panel</h2>
+<table class="table">
+    <tr>
+        <th>
+            Option
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.ActionLink("Books", "Index", "Books")
+        </td>
+        <td>
+            Create, edit, update and delete books
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Categories", "Index", "Categories")
+        </td>
+        <td>
+            Create, edit, update and delete categories
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Users", "GetUsers", "ManageUsers")
+        </td>
+        <td>
+            Manage users
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Librarians", "GetLibrarians", "ManageUsers")
+        </td>
+        <td>
+            Manage librarians
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("New accounts", "GetNonactive", "ManageUsers")
+        </td>
+        <td>
+            Activate newly registered accounts
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Messages", "Index", "Messages")
+        </td>
+        <td>
+            Create, edit, update and delete messages
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Roles", "Index", "Role")
+        </td>
+        <td>
+            Create, edit, update and delete roles
+        </td>
+    </tr>
+
+</table>

@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Librarians</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Full name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Activated?
+        </th>
+        @*<th>
+            Role
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var user in (dynamic)Model)
+    {
+        var appUser = user.User;
+        var roles = user.Roles;
+    <tr>
+        <td>
+            @appUser.FullName
+        </td>
+        <td>
+            @appUser.Email
+        </td>
+        <td>
+            @appUser.EmailConfirmed
+        </td>
+        @*<td>
+            @string.Join(",", roles)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Account", new { id = appUser.Id }, null) |
+            @Html.ActionLink("Details", "DetailsLibrarian", new { id = appUser.Id }) |
+            @Html.ActionLink("Delete", "DeleteLibrarian", new { id = appUser.Id })
+        </td>
+    </tr>
+    }
+
+</table>

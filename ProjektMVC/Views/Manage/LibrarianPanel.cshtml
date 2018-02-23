@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Librarian panel";
+}
+
+<h2>Librarian panel</h2>
+<table class="table">
+    <tr>
+        <th>
+            Option
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.ActionLink("Books", "Index", "Books")
+        </td>
+        <td>
+            Create, edit, update and delete books
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Categories", "Index", "Categories")
+        </td>
+        <td>
+            Create, edit, update and delete categories
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Users", "GetUsers", "ManageUsers")
+        </td>
+        <td>
+            Manage users
+        </td>
+    </tr>
+
+</table>

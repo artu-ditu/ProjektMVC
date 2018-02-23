@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjektMVC.Models.Penalty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reader.login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isPayed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reader.login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isPayed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.penaltyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.penaltyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.penaltyID })
+        </td>
+    </tr>
+}
+
+</table>

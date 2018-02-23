@@ -1,0 +1,34 @@
+﻿@model ProjektMVC.Models.BookFile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookFile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag.filename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tag.filename)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bookFileID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

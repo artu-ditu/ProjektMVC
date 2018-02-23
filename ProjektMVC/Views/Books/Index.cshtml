@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ProjektMVC.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("Librarian"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+@using (Html.BeginForm("Index", "Books", FormMethod.Get))
+{
+    //the following are search options
+    <b> Search Option: </b>
+    @Html.RadioButton("option", "Title") <text>Title</text>
+    @Html.RadioButton("option", "Author") <text> Author </text>
+    @Html.RadioButton("option", "ISBN")<text>ISBN </text>
+    @Html.TextBox("search") <input type="submit" name="submit" value="Search" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            ISBN
+        </th>
+        <th>
+            Release date
+        </th>
+        <th>
+            Add date
+        </th>
+        @*<th>
+            In stock
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iSBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.releaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addDate)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>*@
+            @if (ViewContext.HttpContext.User.IsInRole("Admin") || ViewContext.HttpContext.User.IsInRole("Librarian"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.bookID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.bookID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.bookID })
+                </td>
+            }
+            @if (ViewContext.HttpContext.User.IsInRole("User"))
+            {
+                <td>
+                    <p class="button">
+                        @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = item.bookID }, "")
+                    </p>
+                </td>
+            }
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model ProjektMVC.Models.Penalty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Penalty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reader.login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reader.login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPayed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isPayed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.penaltyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
